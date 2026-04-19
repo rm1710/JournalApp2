@@ -3,6 +3,8 @@ package com.JournalApp.service;
 import com.JournalApp.entity.JournalEntry;
 import com.JournalApp.entity.User;
 import com.JournalApp.repository.JournalEntryRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class JournalEntryService {
     @Autowired
     private UserService userService;
 
+    private static final Logger logger= LoggerFactory.getLogger(JournalEntryService.class);
+
     public void saveEntry(JournalEntry journalEntry, String userName) {
        try{
            User user= userService.findByUserName(userName);
@@ -28,11 +32,11 @@ public class JournalEntryService {
            journalEntry.setDate(LocalDateTime.now());
            journalEntry.setUser(user);
            JournalEntry saved = journalEntryRepository.save(journalEntry);
-           System.out.println("Saved Entry: " + saved);
+           logger.info("journal entry is saved");
            user.getJournalEntries().add(saved);
            userService.saveUser(user);
        }catch (Exception e){
-           System.out.println(e);
+            logger.info("that is fail");
            throw new RuntimeException("An error occured while saving the entry.",e);
        }
     }

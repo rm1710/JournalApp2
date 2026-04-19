@@ -2,9 +2,11 @@ package com.JournalApp.service;
 
 import com.JournalApp.entity.User;
 import com.JournalApp.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -12,7 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Service
+@Component
+@Slf4j
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -26,8 +29,11 @@ public class UserService {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRoles(Arrays.asList("USER"));
             User us= userRepository.save(user);
+            log.debug("this user is saved");
             return true;
         }catch(Exception e){
+            log.error("this is failed");
+            log.debug("this is fail");
             return false;
         }
 
