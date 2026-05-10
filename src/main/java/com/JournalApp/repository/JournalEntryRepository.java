@@ -1,6 +1,6 @@
-package com.JournalApp.repository;
+package com.journalapp.repository;
 
-import com.JournalApp.entity.JournalEntry;
+import com.journalapp.entity.JournalEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

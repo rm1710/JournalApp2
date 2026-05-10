@@ -1,4 +1,4 @@
-package com.JournalApp.entity;
+package com.journalapp.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

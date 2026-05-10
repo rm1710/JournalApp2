@@ -1,21 +1,20 @@
-package com.JournalApp.controller;
+package com.journalapp.controller;
 
-import com.JournalApp.entity.User;
-import com.JournalApp.repository.UserRepository;
-import com.JournalApp.service.UserService;
+import com.journalapp.api.response.WeatherResponse;
+import com.journalapp.entity.User;
+import com.journalapp.repository.UserRepository;
+import com.journalapp.service.UserService;
+import com.journalapp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -23,6 +22,11 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    private WeatherService weatherService;
+    public UserController(WeatherService weatherService){
+        this.weatherService=weatherService;
+    }
 
     @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody User user){
@@ -42,5 +46,11 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         userRepository.deleteByUserName(authentication.getName());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/weather")
+    public WeatherResponse getWeather(
+            @RequestParam String city) {
+        return weatherService.getWeather(city);
     }
 }

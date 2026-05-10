@@ -1,7 +1,7 @@
-package com.JournalApp.service;
+package com.journalapp.service;
 
-import com.journalApp.entity.User;
-import com.journalApp.repository.UserRepository;
+import com.journalapp.entity.User;
+import com.journalapp.repository.UserRepository;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;

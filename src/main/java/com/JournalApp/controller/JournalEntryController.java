@@ -1,9 +1,9 @@
-package com.JournalApp.controller;
+package com.journalapp.controller;
 
-import com.JournalApp.entity.JournalEntry;
-import com.JournalApp.entity.User;
-import com.JournalApp.service.JournalEntryService;
-import com.JournalApp.service.UserService;
+import com.journalapp.entity.JournalEntry;
+import com.journalapp.entity.User;
+import com.journalapp.service.JournalEntryService;
+import com.journalapp.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.JournalApp.entity;
+package com.journalapp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

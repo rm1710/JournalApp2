@@ -1,6 +1,6 @@
-package com.JournalApp.repository;
+package com.journalapp.repository;
 
-import com.JournalApp.entity.User;
+import com.journalapp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

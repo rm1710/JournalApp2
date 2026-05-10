@@ -1,8 +1,8 @@
-package com.JournalApp.service;
+package com.journalapp.service;
 
-import com.JournalApp.entity.JournalEntry;
-import com.JournalApp.entity.User;
-import com.JournalApp.repository.JournalEntryRepository;
+import com.journalapp.entity.JournalEntry;
+import com.journalapp.entity.User;
+import com.journalapp.repository.JournalEntryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
