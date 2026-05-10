@@ -31,6 +31,11 @@ public class User {
     @NonNull
     private String userName;
 
+    private String email;
+
+    @Column(nullable = false)
+    private boolean sentimentAnalysis= false;;
+
     @NotNull
     private String password;
 
